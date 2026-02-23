@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Fertile Map",
+  "description": "An academic decision-support tool for rapid soil fertility analysis using AI image recognition and localized fertilizer recommendations.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
