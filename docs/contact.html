@@ -1,1 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Royal College Zimbabwe</title>
+  <link rel="icon" href="assets/img/favicon.png" sizes="32x32">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    :root{--azura:#007FFF;--golden:#FFB000;--navy:#001F3F;--black:#000;--white:#fff;--muted:#f7f9fc}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:var(--navy);background:var(--white)}
+    .site-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:linear-gradient(90deg,var(--azura),var(--navy));color:var(--white);position:relative;z-index:10}
+    .logo{width:192px;height:auto;border-radius:8px}
+    .brand h1{margin:0;font-size:1.2rem}
+    .brand .tag{opacity:0.95;margin-top:4px;font-size:0.95rem}
+    .main-nav{display:flex;align-items:center;}
+    .main-nav a{color:var(--white);margin-left:12px;text-decoration:none;font-weight:600}
+    .main-nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:2rem;margin-left:16px;cursor:pointer}
+    .container{max-width:1000px;margin:24px auto;padding:0 18px}
+    .site-footer{padding:12px 20px;background:var(--navy);color:var(--white);text-align:center;margin-top:24px;border-top:4px solid var(--golden)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:6px;background:var(--navy);color:var(--white);text-decoration:none;font-weight:600}
+    .btn-portal{background:linear-gradient(90deg,var(--azura),var(--navy));box-shadow:0 6px 18px rgba(0,31,63,0.12)}
+    @media (max-width: 700px) {
+      .site-header{flex-direction:column;align-items:flex-start;padding:12px 8px;}
+      .logo{width:140px;}
+      .main-nav{flex-direction:column;align-items:flex-start;position:absolute;top:100%;left:0;width:100vw;background:linear-gradient(90deg,var(--azura),var(--navy));padding:0;display:none;z-index:100;}
+      .main-nav.open{display:flex;}
+      .main-nav a{margin:12px 0 0 18px;display:block;}
+      .main-nav-toggle{display:block;}
+    }
+    @media (max-width: 500px) {
+      .container{padding:0 4px;}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div style="display:flex;align-items:center;gap:12px">
+      <img src="assets/img/logo.png" alt="Royal College logo" class="logo">
+      <div class="brand"><h1>Royal College Zimbabwe</h1><div class="tag">Glen View • Rainham</div></div>
+      <button class="main-nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">&#9776;</button>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#portal">Portal</a>
+    </nav>
+  </header>
 
+  <main class="container">
+    <h2>Contact Us</h2>
+    <p>Office locations and contact details.</p>
+
+    <section>
+      <h3>Glen View Campus</h3>
+      <p>No 7761, 18th Avenue, Glenview 8, Near High Glen Shopping Centre, Harare</p>
+      <p>Call / WhatsApp: 0775 516 066 / Email: royalcollegezim@gmail.com</p>
+    </section>
+
+    <section>
+      <h3>Rainham Campus</h3>
+      <p>Plot 12 Rainham, near Tiger Bricks and Rainham Park</p>
+      <p>Call / WhatsApp: 0788 722 384 / 0788 864 957</p>
+    </section>
+
+    <section>
+      <h3>Send a Message (placeholder)</h3>
+      <form id="contact-form" style="max-width:520px">
+        <input name="name" placeholder="Your name" style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ddd">
+        <input name="email" placeholder="Your email" style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ddd">
+        <textarea name="message" placeholder="Message" style="width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ddd" rows="5"></textarea>
+        <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn btn-portal" type="submit">Send</button></div>
+      </form>
+      <div id="contact-result" style="display:none;margin-top:10px"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Royal College Zimbabwe — © <span id="year"></span></footer>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('contact-result').style.display='block';
+      document.getElementById('contact-result').textContent='Message saved locally (placeholder). We will connect a backend later.';
+    });
+  </script>
+</body>
+</html>
