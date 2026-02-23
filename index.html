@@ -1,34 +1,163 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fertile Map - Soil Analysis & Fertilizer Recommendation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "recharts": "https://esm.sh/recharts@^3.7.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Royal College Zimbabwe — Home</title>
+	<meta name="description" content="Royal College Zimbabwe: Glen View & Rainham Campuses. Quality education, admissions, contact info, and more. Building futures through partnership, structure, and excellence.">
+	<meta name="keywords" content="Royal College Zimbabwe, Glen View, Rainham, secondary school, admissions, Harare, education, high school, portal, contact">
+	<meta name="author" content="Royal College Zimbabwe">
+	<link rel="canonical" href="https://n02423594t-spec.github.io/Royal-College-Project/docs/" />
+	<link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
+	<style>
+			 :root{--azura:#007FFF;--golden:#FFB000;--navy:#001F3F;--black:#000;--white:#fff;--muted:#f7f9fc}
+			 *{box-sizing:border-box}
+			 body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:var(--navy);background:var(--white)}
+			 .site-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:linear-gradient(90deg,var(--azura),var(--navy));color:var(--white);position:relative;z-index:10}
+			 .logo{width:192px;height:auto;border-radius:8px}
+			 .brand h1{margin:0;font-size:1.2rem}
+			 .brand .tag{opacity:0.95;margin-top:4px;font-size:0.95rem}
+			 .main-nav{display:flex;align-items:center;}
+			 .main-nav a{color:var(--white);margin-left:12px;text-decoration:none;font-weight:600}
+			 .main-nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:2rem;margin-left:16px;cursor:pointer}
+			 .container{max-width:1000px;margin:24px auto;padding:0 18px}
+			 .hero{background:var(--muted);padding:20px;border-left:6px solid var(--golden);border-radius:6px;margin-bottom:16px}
+			 .campus-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+			 .campus{padding:14px;border:1px solid rgba(0,0,0,0.06);border-radius:6px;background:#fff}
+			 .portal-preview{margin:16px 0;padding:14px;border-radius:6px;border:1px dashed rgba(0,0,0,0.06);background:linear-gradient(180deg,rgba(0,127,255,0.03),transparent)}
+			 .btn{display:inline-block;padding:10px 14px;border-radius:6px;background:var(--navy);color:var(--white);text-decoration:none;font-weight:600}
+			 .btn-portal{background:linear-gradient(90deg,var(--azura),var(--navy));box-shadow:0 6px 18px rgba(0,31,63,0.12)}
+			 .site-footer{padding:12px 20px;background:var(--navy);color:var(--white);text-align:center;margin-top:24px;border-top:4px solid var(--golden)}
+			 /* Motto bubble */
+			 .motto{display:inline-block;margin-top:12px;background:var(--golden);color:var(--navy);padding:10px 16px;border-radius:999px;font-weight:800;font-size:1.05rem;box-shadow:0 6px 18px rgba(0,31,63,0.08)}
+			 .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);visibility:hidden;opacity:0;transition:opacity .18s ease,visibility .18s}
+			 .overlay.show{visibility:visible;opacity:1}
+			 .error-box{background:var(--white);padding:26px;border-radius:10px;max-width:560px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.15)}
+			 .error-code{font-size:48px;font-weight:800;color:var(--golden);margin:6px 0 12px}
+			 .actions{display:flex;gap:12px;justify-content:center;margin-top:16px}
+			 .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.08);color:var(--navy);padding:8px 12px;border-radius:8px}
+
+			 @media (max-width: 700px) {
+				 .site-header{flex-direction:column;align-items:flex-start;padding:12px 8px;}
+				 .logo{width:140px;}
+				 .main-nav{flex-direction:column;align-items:flex-start;position:absolute;top:100%;left:0;width:100vw;background:linear-gradient(90deg,var(--azura),var(--navy));padding:0;display:none;z-index:100;}
+				 .main-nav.open{display:flex;}
+				 .main-nav a{margin:12px 0 0 18px;display:block;}
+				 .main-nav-toggle{display:block;}
+			 }
+			 @media (max-width: 500px) {
+				 .container{padding:0 4px;}
+				 .hero{padding:12px;}
+				 .campus-list{grid-template-columns:1fr;}
+			 }
+	</style>
 </head>
 <body>
-    <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+	<header class="site-header">
+		   <div style="display:flex;align-items:center;gap:12px">
+			   <img src="assets/img/logo.png" alt="Royal College logo" class="logo">
+			   <div class="brand">
+				   <h1>Royal College Zimbabwe</h1>
+				   <div class="tag">Glen View Campus • Rainham Campus</div>
+			   </div>
+			   <button class="main-nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.main-nav').classList.toggle('open')">&#9776;</button>
+		   </div>
+
+		   <nav class="main-nav" aria-label="Main navigation">
+			   <a href="#home">Home</a>
+			   <a href="#about">About</a>
+			   <a href="admissions.html" target="_blank" rel="noopener">Admissions</a>
+			   <a href="#portal" id="portal-link">Portal</a>
+			   <a href="#contact">Contact</a>
+		   </nav>
+	</header>
+
+	<main class="container">
+		<section class="hero" id="about">
+			 <h2>Welcome to Royal College Zimbabwe</h2>
+			 <p>To provide high quality education and learners care in a safe, respectful, multicultural environment.</p>
+			 <p class="motto">BE OF WORLD CLASS QUALITY</p>
+			 <div class="collaboration-message" style="background:var(--muted,#f7f9fc);padding:14px 16px;margin-top:16px;border-radius:6px;border-left:4px solid var(--azura,#007FFF);">
+				 <p style="margin:0;font-size:1.08rem;">
+					 We offer the opportunity to engage directly with our teaching staff and administration, collaborate on academic goals, and openly address matters requiring attention strengthens the foundation on which our learners grow. When parents and educators work together, progress is intentional and measurable.
+				 </p>
+			 </div>
+		</section>
+
+		<section class="campuses" id="campuses" aria-labelledby="campuses-title">
+			<h3 id="campuses-title">Our Campuses</h3>
+			<div class="campus-list">
+				<article class="campus">
+					   <h4><a href="glen-view-campus.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Glen View Campus</a></h4>
+					   <p>Building futures through partnership, structure, and excellence.</p>
+				</article>
+
+				<article class="campus">
+					   <h4><a href="rainham-campus.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Rainham Campus</a></h4>
+					   <p>Through our Heritage-Based Curriculum, we build more than academic success — we build confident, disciplined and well-rounded young leaders.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="admissions" id="admissions">
+			<h3><a href="admissions.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Admissions</a></h3>
+			<p><a href="admissions.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Admissions</a> information, entry requirements and application forms will be available here.</p>
+		</section>
+
+		<section class="portal-preview" aria-labelledby="portal-title">
+			<h3 id="portal-title">Student / Staff Portal</h3>
+			<p>Coming soon.</p>
+			<button id="open-portal" class="btn btn-portal">Open Portal</button>
+		</section>
+
+	</main>
+
+	   <footer class="site-footer" id="contact">
+		<p>Royal College Zimbabwe — Glen View &amp; Rainham • © <span id="year"></span></p>
+		<div style="margin-top:10px;">
+			<strong>Glen View Campus</strong><br>
+			7761 18th Avenue, Glen View 8, Near High Glen Shopping Centre, Harare, Zimbabwe<br>
+			077 551 6066<br>
+			<a href="mailto:royalcollegezim@gmail.com?subject=Enquiry%20from%20Royal%20College%20Website&body=Dear%20Royal%20College%2C%0A%0AI%20would%20like%20to%20enquire%20about..." style="color:#fff;text-decoration:underline">royalcollegezim@gmail.com</a>
+		</div>
+		<div style="margin-top:10px;">
+			<strong>Rainham Campus</strong><br>
+			Stand 605, Rainham, Harare, Zimbabwe<br>
+			077 551 6066<br>
+			<a href="mailto:royalcollegezim@gmail.com?subject=Enquiry%20from%20Royal%20College%20Website&body=Dear%20Royal%20College%2C%0A%0AI%20would%20like%20to%20enquire%20about..." style="color:#fff;text-decoration:underline">royalcollegezim@gmail.com</a>
+		</div>
+	   </footer>
+
+	<!-- Portal error overlay (simulated) -->
+	<div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="err-title">
+		<div class="error-box">
+			<h2 id="err-title">Portal Unavailable</h2>
+			<div class="error-code">Error 503</div>
+			<p>The portal is currently unavailable. Backend services are not configured yet.</p>
+			<div class="actions">
+				<a class="btn" href="index.html">Back to Home</a>
+				<button id="retry" class="btn-ghost">Retry</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.getElementById('year').textContent = new Date().getFullYear();
+		const overlay = document.getElementById('overlay');
+		const openPortal = document.getElementById('open-portal');
+		const portalLink = document.getElementById('portal-link');
+
+		function showError(){
+			overlay.classList.add('show');
+			console.error('Portal access attempted: simulated 503 Service Unavailable');
+		}
+
+		openPortal.addEventListener('click', showError);
+		portalLink.addEventListener('click', function(e){ e.preventDefault(); showError(); });
+
+		document.getElementById('retry').addEventListener('click', function(){
+			alert('Portal still unavailable (503). Backend not configured.');
+		});
+	</script>
 </body>
 </html>
