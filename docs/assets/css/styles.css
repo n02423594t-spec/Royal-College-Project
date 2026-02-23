@@ -1,0 +1,66 @@
+:root{
+  --azura: #007FFF; /* Azura blue */
+  --golden: #FFB000; /* Golden orange */
+  --navy: #001F3F;   /* Navy blue */
+  --black: #000000;
+  --white: #ffffff;
+  --muted: #f7f9fc;
+  --radius: 10px;
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:var(--navy);background:var(--white);-webkit-font-smoothing:antialiased}
+a{color:var(--azura);text-decoration:none}
+.container{max-width:1000px;margin:24px auto;padding:0 20px}
+
+/* Header */
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:linear-gradient(90deg,var(--azura),var(--navy));color:var(--white)}
+.site-header.small{padding:12px 20px;background:var(--navy)}
+.brand h1{margin:0;font-size:1.1rem}
+.brand .tag{opacity:0.95;margin-top:4px;font-size:0.9rem}
+
+/* Logo in header */
+.logo{width:192px;height:auto;border-radius:6px;object-fit:cover;border:2px solid rgba(255,255,255,0.12)}
+.header-contact{color:rgba(255,255,255,0.95);font-size:0.9rem;text-align:right;margin-right:14px}
+
+/* Nav */
+.main-nav a{color:var(--white);margin-left:14px;font-weight:600}
+/* make nav layout flexible for toggling */
+.main-nav{display:flex;gap:12px;align-items:center}
+
+/* Section */
+.hero{background:var(--muted);padding:20px;border-left:6px solid var(--golden);border-radius:6px;margin-bottom:16px}
+.campus-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.campus{padding:14px;border:1px solid rgba(0,0,0,0.06);border-radius:6px;background:#fff}
+
+/* Buttons */
+.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--navy);color:var(--white);text-decoration:none;font-weight:600}
+.btn-portal{background:linear-gradient(90deg,var(--azura),var(--navy));box-shadow:0 6px 18px rgba(0,31,63,0.12)}
+.btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.08);color:var(--navy);padding:8px 12px;border-radius:8px}
+
+/* Footer */
+.site-footer{padding:12px 20px;background:var(--navy);color:var(--white);text-align:center;margin-top:24px;border-top:4px solid var(--golden)}
+
+/* Portal / Error */
+.error-page{display:flex;align-items:center;justify-content:center;height:65vh}
+.error-card{max-width:560px;padding:28px;border-radius:12px;background:linear-gradient(180deg,var(--white),var(--muted));box-shadow:0 6px 20px rgba(0,0,0,0.06);text-align:center;border:1px solid rgba(0,0,0,0.04)}
+.error-code{font-size:48px;font-weight:800;color:var(--golden);margin:6px 0 12px}
+.hint{color:rgba(0,0,0,0.6);font-size:0.95rem}
+.actions{margin-top:16px;display:flex;gap:12px;justify-content:center}
+
+/* Responsive tweaks */
+@media (max-width:520px){
+  .container{padding:0 12px}
+  .site-header{flex-direction:column;align-items:flex-start;gap:10px}
+  .header-contact{text-align:left;margin-right:0}
+}
+
+/* Announcement */
+.announcement{padding:14px;border-left:6px solid var(--azura);background:linear-gradient(180deg,rgba(255,176,0,0.04),transparent);margin-top:12px;border-radius:6px}
+.announcement p{margin:8px 0}
+
+/* small inputs used on contact/portal pages */
+input,textarea{font-family:inherit}
+
+/* Motto styling */
+.motto{font-style:italic;color:var(--navy);font-weight:800;margin-top:18px;font-size:1.25rem;display:block}
